@@ -1,0 +1,24 @@
+<div id="logoUpload" class="crm-modal crm-effect" style="top:0">
+    <div class="crm-content" style="position:relative">
+        <div class="popup__head">Upload Your Logo <span class="popup__close"
+                onclick="closeModal('logoUpload', 'freezeBg')"></span></div>
+        <div class="photo-container">
+            <div class="select-upload">
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="userId" value="<%=user._id %>" />
+                    <input type="hidden" name="_csrf" value="<%=csrfToken %>" />
+                    <div id="drop" class="popup_modal_content">
+                        <h4 style="font-size: 2.4rem; color: #bbb;">Choose your company logo.</h4>
+                        <div class="center">
+                            <div class="upload-btn">
+                                <button id="filebtn" class="btn btn-primary">Browse Local Files.</button>
+                            </div>
+                            <input type="file" name="upload_photo" id="upload_photo"
+                                style=" height:10rem; letter-spacing:5px; position:relative; top:-33px; opacity:0; cursor:pointer">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

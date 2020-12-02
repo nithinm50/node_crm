@@ -1,0 +1,74 @@
+<%- include('../../includes/admin/header.ejs') %>
+<%- include('../../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="head-banner">
+        <div class="dashboard__types">
+
+        </div>
+        <div class="banner__actions">
+            <div class="dashboard-items">
+                <a class="import-btn" class="editCont"><span class="details"></span></a>
+                <a class="more-btn" class="editCont"><span class="details"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content isopen">
+        <%- include('../../includes/admin/sidebar.ejs') %>
+        <div class="main-container">
+            <table>
+                <thead>
+                    <tr class="client">
+                        <th><input type="button" value="" id="addColumn"></th>
+                        <th><input type="checkbox" class="checkAll"></th>
+                        <th>Client ID</th>
+                        <th>Client Name</th>
+                        <th>Company</th>
+                        <th>State</th>
+                        <th>Zipcode</th>
+                        <th>Client Owner</th>
+                        <th>GST No</th>
+                    </tr>
+                </thead>
+                <% if(clients.length > 0) { %>
+                <tbody>
+                    <% for (client of clients) { %>
+                    <tr class="client">
+                        <td class="editCont"><span class="editIcon"></span></td>
+                        <td><input type="checkbox" name="lead" class="checker"></td>
+                        <td><%= client._id%></td>
+                        <td><%= client.name%></td>
+                        <td><%= client.company%></td>
+                        <td><%= client.address.state%></td>
+                        <td><%= client.address.zipcode%></td>
+                        <td><%= org.cname%></td>
+                        <td><%= client.gst%></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+                <% } %>
+            </table>
+        </div>
+        <div class="footer-items">
+            <div class="left-element">
+                <p>Total Count: <%= clients.length %></p>
+            </div>
+            <div class="right-element">
+                <div class="flex">
+                    <select name="type" id="" class="selection">
+                        <option value="A">10 Records Per Page</option>
+                        <option value="A">20 Records Per Page</option>
+                        <option value="A">30 Records Per Page</option>
+                    </select>
+                    <div class="navigation">
+                        <div class="l-arrow"></div>
+                        <div class="nav-content"><span class="from">1</span> to <span class="to">10</span></div>
+                        <div class="r-arrow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrow" onclick="handleSidebar()" class="editCont"><span>&langle;</span>
+        </div>
+    </div>
+</main>
+<%- include('../../includes/admin/footer.ejs') %>

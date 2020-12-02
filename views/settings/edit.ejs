@@ -1,0 +1,113 @@
+<%- include('../includes/admin/header.ejs') %>
+<%- include('../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="page-content isopen">
+        <%- include('../includes/admin/sidebar.ejs') %>
+        <div class="main-container settings">
+            <div class="user-details">
+                <div class="infobox">
+                    <div class="img-container">
+                        <img src="/images/user-thumbnail.png" alt="" class="user-image">
+                        <a href="#" class="upload-img" onclick="openModal('profileUpload', 'freezeBg')">Change</a>
+                    </div>
+                    <div class="info-container">
+                        <div>
+                            <span class="user-title"><%= user.fname%> <%= user.lname%></span>
+                            <a class="tag">Super Admin</a>
+                            <span class="svg-icons icon-edit" onclick="openModal('profilepopup', 'freezeBg')"></span>
+                        </div>
+                        <div class="secondary-info">
+                            <a href="#" class="role">CEO</a>
+                            at
+                            <a href="#" class="company">Clevertize</a>
+                        </div>
+                        <div class="email-icon">
+                            <span>nithin@clevertize.com</span>
+                        </div>
+                        <div class="phone-icon">
+                            <span>9036326968</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showhidedetails">
+                    <a href="#" class="showhidelink">hide Details</a>
+                </div>
+                <div class="user_information">
+                    <h4 class="info__head">User Information</h4>
+                    <div class="user_items">
+                        <div class="element">
+                            <span class="element__title">First Name</span>
+                            <span class="element__value"><%= user.fname%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Last Name</span>
+                            <span class="element__value"><%= user.lname%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Email</span>
+                            <span class="element__value"><%= user.email%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Role</span>
+                            <span class="element__value"><%= user.role%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Profile</span>
+                            <span class="element__value"><%= user.profile%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Alias</span>
+                            <span class="element__value"><%= user.alias%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Phone</span>
+                            <span class="element__value"><%= user.phone%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">mobile</span>
+                            <span class="element__value"><%= user.mobile%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Website</span>
+                            <span class="element__value"><%= user.website%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Date of Birth</span>
+                            <span class="element__value"><%= user.dob%></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="address_information">
+                    <h4 class="info__head">Address Information</h4>
+                    <div class="user_items">
+                        <div class="element">
+                            <span class="element__title">Street</span>
+                            <span class="element__value"><%= user.address.street%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">City</span>
+                            <span class="element__value"><%= user.address.city%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">State</span>
+                            <span class="element__value"><%= user.address.state%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Country</span>
+                            <span class="element__value"><%= user.address.country%></span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Zip Code</span>
+                            <span class="element__value"><%= user.address.zipcode%></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrow" onclick="handleSidebar()" class="editCont"><span>&langle;</span>
+        </div>
+    </div>
+</main>
+<%- include('../includes/admin/modal/user-profile.ejs') %>
+<%- include('../includes/admin/modal/user-img.ejs') %>
+<%- include('../includes/admin/footer.ejs') %>

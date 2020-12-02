@@ -1,0 +1,324 @@
+<%- include('../../includes/admin/header.ejs') %>
+<%- include('../../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="head-banner">
+        <div class="dashboard__types">
+            <select name="type" id="" class="selection">
+                <option value="A">Unread Leads</option>
+                <option value="A">Duplicate Leads</option>
+                <option value="A">Untitled</option>
+            </select>
+            <span class="edit">Edit</span>
+            <span class="refreshButton"></span>
+        </div>
+        <div class="banner__actions">
+            <div class="dashboard-items">
+                <a class="import-btn"><span class="details"></span></a>
+                <a class="more-btn"><span class="details"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <aside class="sidebar">
+            <div class="sidebar__body">
+                <h2 class="sidebar__title">Sidebar Content</h2>
+            </div>
+        </aside>
+        <div class="main-container h-94">
+            <div class="detailTabs">
+                <div class="details">
+                    <ul class="list ">
+                        <span class="list__cover on"></span>
+                        <li class="list__item">Overview</li>
+                        <li class="list__item">Timeline</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lead-intro">
+                <% if(lead) { %>
+                <div class="c-card card--half">
+                    <div class="card__body">
+                        <div class="card__info">
+                            <div class="card__item">
+                                <h4 class="card__label">Lead Owner</h4>
+                                <span id="HEADER_LEAD_OWNER" class="label__val"><%=user.fname%> <%=user.lname%></span>
+                                <!-- <div class="card__value">
+                                    <input type="text" name="owner" class="card__input"
+                                        value="<%=user.fname%> <%=user.lname%>">
+                                    <span class="card__btn btn--save"></span>
+                                    <span class="card__btn btn--cancel"></span>
+                                </div> -->
+                            </div>
+                            <div class="card__item">
+                                <h4 class="card__label">Email</h4>
+                                <span id="HEADER_LEAD_EMAIL" class="label__val"><%=lead.email%></span>
+                                <!-- <div class="card__value">
+                                    <input type="email" name="email" class="card__input" value="<%=lead.email%>">
+                                    <span class="card__btn btn--save"></span>
+                                    <span class="card__btn btn--cancel"></span>
+                                </div> -->
+                            </div>
+                            <div class="card__item">
+                                <h4 class="card__label">Phone</h4>
+                                <span id="HEADER_LEAD_PHONE" class="label__val"><%=lead.phone%></span>
+                                <!-- <div class="card__value">
+                                    <input type="tel" name="phone" class="card__input" value="<%=lead.phone%>">
+                                    <span class="card__btn btn--save"></span>
+                                    <span class="card__btn btn--cancel"></span>
+                                </div> -->
+                            </div>
+                            <div class="card__item">
+                                <h4 class="card__label">Mobile</h4>
+                                <span id="HEADER_LEAD_MOBILE" class="label__val"><%=lead.mobile%></span>
+                                <!-- <div class="card__value">
+                                    <input type="tel" name="mobile" class="card__input" value="<%=lead.mobile%>">
+                                    <span class="card__btn btn--save"></span>
+                                    <span class="card__btn btn--cancel"></span>
+                                </div> -->
+                            </div>
+                            <div class="card__item">
+                                <h4 class="card__label">Lead Status</h4>
+                                <span id="HEADER_LEAD_STATUS" class="label__val"><%=lead.lead_status%></span>
+                                <!-- <div class="card__value">
+                                    <input type="text" name="status" class="card__input" value="<%=lead.lead_status%>">
+                                    <span class="card__btn btn--save"></span>
+                                    <span class="card__btn btn--cancel"></span>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-card card--full">
+                    <div class="card__body">
+                        <h4 class="card__title">Lead Information</h4>
+                        <div class="card__grid">
+                            <div class="card__info">
+                                <div class="card__item">
+                                    <h4 class="card__label">Lead Owner</h4>
+                                    <span id="LEAD_OWNER" class="label__val"><%=user.fname%> <%=user.lname%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="owner" class="card__input"
+                                            value="<%=user.fname%> <%=user.lname%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Phone</h4>
+                                    <span id="LEAD_PHONE" class="label__val"><%=lead.phone%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="tel" name="phone" class="card__input" value="<%=lead.phone%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Mobile</h4>
+                                    <span id="LEAD_MOBILE" class="label__val"><%=lead.mobile%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="tel" name="mobile" class="card__input" value="<%=lead.mobile%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Industry</h4>
+                                    <span id="LEAD_INDUSTRY" class="label__val"><%=lead.industry%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="industry" class="card__input"
+                                            value="<%=lead.industry%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">utm medium</h4>
+                                    <span id="LEAD_UTMM" class="label__val"><%=lead.utm_medium%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="utm_medium" class="card__input"
+                                            value="<%=lead.utm_medium%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">utm content</h4>
+                                    <span id="LEAD_UTMCAMP" class="label__val"><%=lead.utm_content%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="utm_content" class="card__input"
+                                            value="<%=lead.utm_content%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">utm source</h4>
+                                    <span id="LEAD_UTMS" class="label__val"><%=lead.utm_source%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="utm_source" class="card__input"
+                                            value="<%=lead.utm_source%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Lead Status</h4>
+                                    <span id="LEAD_STATUS" class="label__val"><%=lead.lead_status%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="status" class="card__input"
+                                            value="<%=lead.lead_status%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Created By</h4>
+                                    <span id="LEAD_CREATE" class="label__val"><%=lead.created_by.name%><br><%=lead.createdAt%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" onload="formatDateTime('<%=lead.createdAt%>')" name="status" class="card__input"
+                                            value="formatDateTime('<%=lead.createdAt%>')">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Modified By</h4>
+                                    <span id="LEAD_UPDATE" class="label__val"><%=lead.modified_by.name%><br><%=lead.updatedAt%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="status" class="card__input" value="<%=lead.updatedAt %>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="card__info">
+                                <div class="card__item">
+                                    <h4 class="card__label">Title</h4>
+                                    <span id="LEAD_STATUS" class="label__val"><%=lead.title%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="title" class="card__input" value="<%=lead.title%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Lead Name</h4>
+                                    <span id="LEAD_NAME" class="label__val"><%=lead.fname%> <%=lead.lname%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="name" class="card__input" value="<%=lead.fname%> <%=lead.lname%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Email</h4>
+                                    <span id="LEAD_EMAIL" class="label__val"><%=lead.email%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="email" name="email" class="card__input" value="<%=lead.email%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Company</h4>
+                                    <span id="LEAD_COMPANY" class="label__val"><%=lead.company%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="tel" name="tel" class="card__input" value="<%=lead.company%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">utm campaign</h4>
+                                    <span id="LEAD_UTMC" class="label__val"><%=lead.utm_campaign%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="status" class="card__input" value="<%=lead.utm_campaign%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="card__title">Address Information</h4>
+                        <div class="card__grid">
+                            <div class="card__info">
+                                <div class="card__item">
+                                    <h4 class="card__label">Area</h4>
+                                    <span id="LEAD_AREA" class="label__val"><%=lead.address.area%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="owner" class="card__input" value="<%=lead.address.area%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">State</h4>
+                                    <span id="LEAD_ADDRESS" class="label__val"><%=lead.address.state%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="tel" class="card__input" value="<%=lead.address.state%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Country</h4>
+                                    <span id="LEAD_STATUS" class="label__val"><%=lead.address.country%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="country" class="card__input" value="<%=lead.address.country%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="card__info">
+                                <div class="card__item">
+                                    <h4 class="card__label">Street</h4>
+                                    <span id="LEAD_STREET" class="label__val"><%=lead.address.street%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="title" class="card__input" value="<%=lead.address.street%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">City</h4>
+                                    <span id="LEAD_CITY" class="label__val"><%=lead.address.city%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="name" class="card__input" value="<%=lead.address.city%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                                <div class="card__item">
+                                    <h4 class="card__label">Zip Code</h4>
+                                    <span id="LEAD_ZIP" class="label__val"><%=lead.address.zipcode%></span>
+                                    <!-- <div class="card__value">
+                                        <input type="text" name="zip" class="card__input" value="<%=lead.address.zipcode%>">
+                                        <span class="card__btn btn--save"></span>
+                                        <span class="card__btn btn--cancel"></span>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="card__title">Description Information</h4>
+                        <div class="card__item">
+                            <h4 class="card__label">Description</h4>
+                            <span id="LEAD_DESC" class="label__val"><%=lead.description%></span>
+                            <!-- <div class="card__value">
+                                <textarea name="desc" id="" class="card__input"></textarea>
+                                <span class="card__btn btn--save"></span>
+                                <span class="card__btn btn--cancel"></span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <%}else{%>
+                <%}%>
+            </div>
+        </div>
+        <div class="arrow" onclick="handleSidebar()"><span>&langle;</span>
+        </div>
+    </div>
+</main>
+<%- include('../../includes/admin/modal/menu.ejs') %>
+<%- include('../../includes/admin/footer.ejs') %>

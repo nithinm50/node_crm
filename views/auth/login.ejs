@@ -1,0 +1,37 @@
+<%- include('../includes/header.ejs') %>
+<header>
+  <a href="/" class="nav-link">
+    <img src="https://clevertize.com/assets/images/logo.png" alt="" class="nav__image" />
+    <span class="nav__brand">Clevertize</span>
+  </a>
+  <a href="./signup" class="btn btn-white">Create an account</a>
+</header>
+<div class="card-container">
+  <div class="section1">
+    <h2 class="page__title">Log in</h2>
+    <p class="section__text">
+      Log in to Clevertize below and get your whole sales organized
+    </p>
+    <form action="/login" method="post" autocomplete="off">
+      <% if(errormsg) { %>
+      <div><%= errormsg %></div>
+      <% } %>
+      <input type="email" name="email" class="form-control" placeholder="Email" value="<%=inputFields.email%>" />
+      <input type="password" name="password" class="form-control" placeholder="Password"
+        value="<%=inputFields.password%>" />
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <a href="/reset" class="form__link">Forgot Password?</a>
+      <div class="btn-group">
+        <button class="btn b0 btn-white w-100 mb-2">
+          <span class="pre-icon"><i class="google-icon"></i></span>Continue with
+          Google
+        </button>
+        <button type="submit" class="btn b0 btn-primary w-100">
+          <span class="pre-icon"><i class="lock-icon"></i></span>Login
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="section2"></div>
+</div>
+<%- include('../includes/footer.ejs') %>

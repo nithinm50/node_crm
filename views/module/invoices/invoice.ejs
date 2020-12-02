@@ -1,0 +1,99 @@
+<%- include('../../includes/admin/header.ejs') %>
+<%- include('../../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="head-banner">
+        <div class="dashboard__types">
+            <select name="type" id="" class="selection">
+                <option value="A">All Invoices</option>
+                <option value="A">Paid Invoices</option>
+                <option value="A">Unpaid Invoices</option>
+            </select>
+            <span class="edit">Edit</span>
+            <span class="refreshButton"></span>
+        </div>
+        <div class="banner__actions">
+            <div class="dashboard-items">
+                <a class="import-btn" class="editCont"><span class="details"></span></a>
+                <a class="more-btn" class="editCont"><span class="details"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content isopen">
+        <%- include('../../includes/admin/sidebar.ejs') %>
+        <div class="main-container">
+            <table>
+                <thead>
+                    <tr class="lead">
+                        <th><input type="button" value="" id="addColumn"></th>
+                        <th><input type="checkbox" class="checkAll"></th>
+                        <th>Invoice Number</th>
+                        <th>Client</th>
+                        <th>Created Date</th>
+                        <th>Due Date</th>
+                        <th>Amount</th>
+                        <th>Invoice Owner</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="lead">
+                        <td class="editCont"><span class="editIcon"></span></td>
+                        <td><input type="checkbox" name="lead" class="checker"></td>
+                        <td><a href="/invoice/id=123">#INV-0001</a></td>
+                        <td>Global Technologies</td>
+                        <td>21 August 2020</td>
+                        <td>20 September 2020</td>
+                        <td><span>₹</span>50000</td>
+                        <td>Clevertize</td>
+                        <td><span class="badge bg-info">Sent</span></td>
+                    </tr>
+                    <tr class="lead">
+                        <td class="editCont"><span class="editIcon"></span></td>
+                        <td><input type="checkbox" name="lead" class="checker"></td>
+                        <td>#INV-0002</td>
+                        <td>Global Technologies</td>
+                        <td>21 June 2020</td>
+                        <td>19 July 2020</td>
+                        <td><span>₹</span>50000</td>
+                        <td>Clevertize</td>
+                        <td><span class="badge bg-success">Paid</span></td>
+                    </tr>
+                    <tr class="lead">
+                        <td class="editCont"><span class="editIcon"></span></td>
+                        <td><input type="checkbox" name="lead" class="checker"></td>
+                        <td>#INV-0001</td>
+                        <td>Global Technologies</td>
+                        <td>30 July 2020</td>
+                        <td>30 August 2020</td>
+                        <td><span>₹</span>50000</td>
+                        <td>Clevertize</td>
+                        <td><span class="badge bg-warning">Partially Paid</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer-items">
+            <div class="left-element">
+                <p>Total Count: 3</p>
+            </div>
+            <div class="right-element">
+                <div class="flex">
+                    <select name="type" id="" class="selection">
+                        <option value="A">10 Records Per Page</option>
+                        <option value="A">20 Records Per Page</option>
+                        <option value="A">30 Records Per Page</option>
+                    </select>
+                    <div class="navigation">
+                        <div class="l-arrow"></div>
+                        <div class="nav-content"><span class="from">1</span> to <span class="to">10</span></div>
+                        <div class="r-arrow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrow" onclick="handleSidebar()" class="editCont"><span>&langle;</span>
+        </div>
+    </div>
+</main>
+<%- include('../../includes/admin/modal/menu.ejs') %>
+<%- include('../../includes/admin/footer.ejs') %>

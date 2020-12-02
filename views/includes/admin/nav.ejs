@@ -1,0 +1,76 @@
+<header>
+    <div class="topBar">
+        <div class="menu-left">
+            <div class="logoContainer">
+                <div class="logo">
+                    <a href="#" class="link">
+                        <span class="logo_icon"></span>
+                        <span class="logo_text">CRM</span>
+                    </a>
+                </div>
+            </div>
+            <div class="menuItems">
+                <a href="/" class="menu__links <% if (page === 'home') { %> active <% } %>">Home</a>
+                <a href="/leads" class="menu__links <% if (page === 'leads') { %> active <% } %>">Leads</a>
+                <a href="/clients" class="menu__links <% if (page === 'clients') { %> active <% } %>">Clients</a>
+                <a href="/invoices" class="menu__links <% if (page === 'invoices') { %> active <% } %>">Invoices</a>
+            </div>
+        </div>
+        <div class="menu-right mr-4">
+            <div class="menuSettings">
+                <div href="#" class="menu__item">
+                    <span class="svg-icons icon-search"></span>
+                </div>
+                <div href="#" class="menu__item">
+                    <span class="svg-icons icon-people"></span>
+                </div>
+                <div href="#" class="menu__item">
+                    <span class="svg-icons icon-alert"></span>
+                </div>
+                <div class="menu__item">
+                    <div class="svg-icons icon-add">
+                    </div>
+                    <ul class="dropdown">
+                        <li>
+                            <a href="/leads/create"><span class="mr-5">+</span>Lead</a>
+                        </li>
+                        <li>
+                            <a href="/contacts/create"><span class="mr-5">+</span>Contact</a>
+                        </li>
+                        <li>
+                            <a href="/clients/create"><span class="mr-5">+</span>Client</a>
+                        </li>
+                        <li>
+                            <a href="/invoices/create"><span class="mr-5">+</span>Invoice</a>
+                        </li>
+                        <li>
+                            <a href="/report/create"><span class="mr-5">+</span>Report</a>
+                        </li>
+                        <span class="arrow"></span>
+                    </ul>
+                </div>
+                <div href="#" class="menu__item">
+                    <span class="svg-icons icon-cal"></span>
+                </div>
+                <div href="#" class="menu__item">
+                    <span class="svg-icons icon-tool"></span>
+                </div>
+            </div>
+            <div class="hamBurger">
+                <div class="box">
+                    <div class="box__dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

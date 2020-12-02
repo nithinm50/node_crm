@@ -1,0 +1,66 @@
+<%- include('../../includes/admin/header.ejs') %>
+<%- include('../../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="head-banner">
+        <div class="banner__title">Add Invoice</div>
+        <div class="banner__actions">
+            <div class="btn-group">
+                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-secondary">Save and New</button>
+                <button class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body bg-white">
+        <div class="form-container">
+            <form action="/clients.html" method="post">
+                <h4 class="form__head">Invoice Details</h4>
+                <div class="grid-half">
+                    <div class="invoice-form-group">
+                        <label for="i_no"><span>Invoice Number</span></label>
+                        <input type="text" name="i_no" class="form-control">
+                    </div>
+                    <div class="invoice-form-group">
+                        <label for="po_no"><span>PO Number Ref</span></label>
+                        <input type="text" name="po_no" class="form-control">
+                    </div>
+                    <div class="invoice-form-group">
+                        <label for="issue_date"><span>Issue Date</span></label>
+                        <input id="datepicker" type="date" name="issue_date" class="form-control">
+                    </div>
+                    <div class="invoice-form-group">
+                        <label for="due_date"><span>Due Date</span></label>
+                        <input id="datepickerto" type="date" name="due_date" class="form-control">
+                    </div>
+                </div>
+                <h4 class="form__head">Billing Details</h4>
+                <div class="grid-half">
+                    <div class="invoice-form-group">
+                        <label for="client_name"><span>Client Name</span></label>
+                        <select class="form-control" name="client_name">
+                            <option value="m">Metro - Bangalore</option>
+                        </select>
+                    </div>
+                    <div class="invoice-form-group">
+                        <label for="po_no"><span>Agency Commission</span></label>
+                        <input type="number" step="1" name="po_no" class="form-control">
+                    </div>
+                </div>
+                <h4 class="form__head">Invoice Items</h4>
+                <div id="dynamic">
+                    <div class="form-item">
+                        <input type="text" name="description[]" class="form-control" placeholder="Item Description">
+                        <input type="text" name="sac_no[]" class="form-control" placeholder="HSN/SAC">
+                        <input type="number" name="qty[]" class="form-control" placeholder="Quantity">
+                        <input type="text" name="rate" class="form-control" placeholder="Price">
+                        <div class="item-action">
+                            <span class="icon-plus" onclick="addRow(this)"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<%- include('../../includes/admin/modal/menu.ejs') %>
+<%- include('../../includes/admin/footer.ejs') %>

@@ -1,0 +1,53 @@
+<%- include('../../includes/admin/header.ejs') %>
+<%- include('../../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="head-banner">
+        <div class="banner__title">Welcome Person</div>
+        <div class="banner__actions">
+            <div class="dashboard-items">
+                <span class="refreshButton"></span>
+                <div class="dashboard__types">
+                    <select name="type" id="" class="selection">
+                        <option value="A">Clevertize Dasboard V1</option>
+                        <option value="A">Clevertize Dasboard V2</option>
+                        <option value="A">Clevertize Dasboard V3</option>
+                    </select>
+                </div>
+                <a class="more-btn"><span class="details"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <section class="card-section">
+            <div class="grid-stack">
+                <div class="card">
+                    <div class="card__header">
+                        <h4>Today's Activity</h4>
+                    </div>
+                    <div class="card__actions"></div>
+                    <div class="card__body"></div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h4>Today's Leads</h4>
+                    </div>
+                    <div class="card__actions"></div>
+                    <div class="card__body"></div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h4>Overview</h4>
+                    </div>
+                    <div class="card__actions"></div>
+                    <div class="card__body"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<%= user %>
+<% if(user.orgId === undefined) { %>
+<%- include('../../includes/admin/modal/org.ejs') %>
+<% } %>
+<%- include('../../includes/admin/modal/menu.ejs') %>
+<%- include('../../includes/admin/footer.ejs') %>

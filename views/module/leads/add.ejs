@@ -1,0 +1,173 @@
+<%- include('../../includes/admin/header.ejs') %>
+<%- include('../../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="head-banner">
+        <div class="banner__title">Add Lead</div>
+        <div class="banner__actions">
+            <div class="btn-group">
+                <button onclick="submitForm('leadForm')" class="btn  btn-primary">Save</button>
+                <button class="btn btn-secondary">Save and New</button>
+                <button class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body bg-white">
+        <div class="form-container">
+            <form class="leadForm" action="/leads/create" method="post">
+                <h4 class="form__head">Lead Information</h4>
+                <div class="grid-half">
+                    <div class="lead-form-group">
+                        <label for="owner"><span>Lead Owner</span> </label>
+                        <% if(org) {%>
+                        <select class="form-control" name="owner">
+                            <% for(owner of org.members.user){%>
+                            <option value="<%=owner._id%>"><%= owner.name%></option>
+                            <% } %>
+                        </select>
+                        <%}%>
+                    </div>
+                    <div class="lead-form-group isreq">
+                        <label for="company"><span>Company</span> </label>
+                        <input type="text" name="company" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="fname"><span>First Name</span> </label>
+                        <input type="text" name="fname" class="form-control" />
+                    </div>
+                    <div class="lead-form-group isreq">
+                        <label for="lname"><span>Last Name</span> </label>
+                        <input type="text" name="lname" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="title"><span>Title</span> </label>
+                        <input type="text" name="title" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="email"><span>Email</span> </label>
+                        <input type="text" name="email" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="phone"><span>Phone</span> </label>
+                        <input type="tel" name="phone" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="fax"><span>Fax</span> </label>
+                        <input type="text" name="fax" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="mobile"><span>Mobile</span> </label>
+                        <input type="tel" name="mobile" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="website"><span>Website</span> </label>
+                        <input type="url" name="website" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="leadSource"><span>Lead Source</span> </label>
+                        <input type="text" name="leadSource" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="leadStatus"><span>Lead Status</span> </label>
+                        <select name="leadStatus" class="form-control">
+                            <option disabled selected value> -None- </option>
+                            <option value="Attempted to Contact">Attempted to Contact</option>
+                            <option value="Contact in Future">Contact in Future</option>
+                            <option value="Contacted">Contacted</option>
+                            <option value="Junk Lead">Junk Lead</option>
+                            <option value="Lost Lead">Lost Lead</option>
+                            <option value="Not Contacted">Not Contacted</option>
+                            <option value="Duplicate">Duplicate</option>
+                            <option value="Follow-up">Follow-up</option>
+                            <option value="Sale">Sale</option>
+                        </select>
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="industry"><span>Industry</span></label>
+                        <select class="form-control" name="industry">
+                            <option value="Accounting">Accounting</option>
+                            <option value="Apparel/Fashion">Apparel/Fashion</option>
+                            <option value="Architecture/Planning">Architecture/Planning</option>
+                            <option value="Automotive">Automotive</option>
+                            <option value="Banking/Mortgage">Banking/Mortgage</option>
+                            <option value="Broadcast Media">Broadcast Media</option>
+                            <option value="Commercial Real Estate">Commercial Real Estate</option>
+                            <option value="Computer Software/Engineering">Computer Software/Engineering</option>
+                            <option value="Consumer Services">Consumer Services</option>
+                            <option value="Cosmetics">Cosmetics</option>
+                            <option value="Financial Services">Financial Services</option>
+                            <option value="Food/Beverages">Food/Beverages</option>
+                            <option value="Government Relations">Government Relations</option>
+                            <option value="Hospitality">Hospitality</option>
+                        </select>
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="rating"><span>Rating</span> </label>
+                        <input type="text" name="rating" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="revenue"><span>Annual Revenue</span> </label>
+                        <input type="text" name="revenue" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="rating"><span>Email opt out</span> </label>
+                        <input type="checkbox" name="emailopt" value="true" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="utmSource"><span>UTM Source</span> </label>
+                        <input type="text" name="utmSource" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="utmMedium"><span>UTM Medium</span> </label>
+                        <input type="text" name="utmMedium" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="utmCampaign"><span>UTM Campaign</span> </label>
+                        <input type="text" name="utmCampaign" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="utmContent"><span>UTM Content</span> </label>
+                        <input type="text" name="utmContent" class="form-control" />
+                    </div>
+                </div>
+                <h4 class="form__head">Address Information</h4>
+                <div class="grid-half">
+                    <div class="lead-form-group">
+                        <label for="area"><span>Area</span> </label>
+                        <input type="text" name="area" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="street"><span>Street</span> </label>
+                        <input type="text" name="street" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="city"><span>City</span> </label>
+                        <input type="text" name="city" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="state"><span>State</span> </label>
+                        <input type="text" name="state" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="country"><span>Country</span> </label>
+                        <input type="text" name="country" class="form-control" />
+                    </div>
+                    <div class="lead-form-group">
+                        <label for="zipcode"><span>Zip Code</span> </label>
+                        <input type="text" name="zipcode" class="form-control" />
+                    </div>
+                </div>
+                <h4 class="form__head">Description Information</h4>
+                <div class="">
+                    <div class="lead-form-group">
+                        <label for="description"><span>Description</span> </label>
+                        <textarea name="description" class="form-control"></textarea>
+                    </div>
+                    <input type="hidden" name="userId" value="<%=user._id %>">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<%- include('../../includes/admin/modal/menu.ejs') %>
+<%- include('../../includes/admin/footer.ejs') %>

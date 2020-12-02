@@ -1,0 +1,66 @@
+<div id="freezeBg" style="display: block; z-index: 30; position: fixed; top: 0px; left: 0px;"></div>
+<form action="/organisation" method="post">
+    <input type="hidden" name="userId" value="<%=user._id %>">
+    <input type="hidden" name="_csrf" value="<%=csrfToken %>" />
+    <div id="orgpopup" class="crm-modal crm-effect crm-show" style="top: 0;">
+        <div class="crm-content">
+            <div class="popup__head">Organisation Details</div>
+            <div class="popup-body">
+                <div class="form_container">
+                    <div class="form-group">
+                        <label for="cname">Company Name</label>
+                        <input type="text" name="cname" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="alias">Alias</label>
+                        <input type="text" name="alias" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">phone</label>
+                        <input type="tel" name="phone" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">mobile</label>
+                        <input type="tel" name="mobile" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website</label>
+                        <input type="url" name="website" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="admin">Super Admin</label>
+                        <select name="admin" class="form-input">
+                            <option value="<%=user._id %>"><%=user.lname %></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input type="text" name="street" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">city</label>
+                        <input type="text" name="city" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">state</label>
+                        <input type="text" name="state" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="zipcode">Zip Code</label>
+                        <input type="text" name="zipcode" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" name="country" class="form-input">
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <div class="btn-groups">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-cancel" onclick="closeModal('orgpopup', 'freezeBg')">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

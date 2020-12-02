@@ -1,0 +1,138 @@
+#freezeBg {
+    background-color: rgb(0, 0, 0);
+    opacity: 0.2;
+    width: 100%;
+    bottom: 0;
+}
+
+.crm-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 550px;
+    height: auto;
+    z-index: 249;
+    visibility: hidden;
+    background: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.crm-effect{
+    transform: translateX(-50%);
+    opacity: 1;
+    animation: all 0.3s;
+}
+
+.crm-show{
+    visibility: visible;
+}
+
+.popup__head {
+    padding: 24px 40px 15px 30px!important;
+    font-size: 2.1rem;
+}
+
+.popup-body {
+    padding: 0 30px 10px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 115px 1fr;
+    grid-column-gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.form-group label {
+    color: #222;
+    font-size: 1.5rem;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.form-input {
+    height: auto;
+    padding: 0;
+    font-size: 1.5rem;
+    color: #222;
+    background: transparent;
+    border: 1px solid #c3c6ca;
+    border-radius: 5px;
+    padding: 8px 10px!important;
+    line-height: normal!important;
+}
+
+.form-input:focus {
+    box-shadow: 0 0 6px #8dc4ff;
+    border: 1px solid #3c9df7;
+    outline: none;
+    border-bottom: 1px solid #3c9df7!important;
+}
+
+.req {
+    border-left: 2px solid red !important;
+}
+
+input:disabled {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: not-allowed;
+}
+
+.form_container {
+    padding-top: 2rem;
+    width: 80%;
+}
+
+.form_title{
+    font-size: 1.8rem;
+    padding: 10px 0 25px;
+    color: #222;
+}
+
+.popup-footer {
+    padding: 25px 20px;
+    text-align: right;
+    overflow: hidden;
+    border-top: 1px solid rgb(130 130 130 / 20%);
+}
+
+.btn-groups .btn {
+    padding: .8rem 1.5rem .9rem;
+    margin-right: 1rem;
+    background: #efefef;
+    color: #000000;
+}
+
+.btn-primary {
+    background: #42a2eb !important;
+    color: #fff !important;
+}
+
+.photo-container {
+    margin: 0 30px 30px;
+    text-align: center;
+}
+
+.popup_modal_content {
+    border-radius: 0 0 8px 8px!important;
+    border: 3px dashed #ddd;
+    padding-top: 20px;
+}
+
+.upload-btn {
+    margin-top: 1rem;
+}
+
+.popup__close {
+    background: url('../images/icons/icon-set1.svg') -250px -105px;
+    width: 12px;
+    height: 11px;
+    top: 1rem;
+    right: 2rem;
+    margin-top: 6px;
+    position: absolute;
+    cursor: pointer;
+}

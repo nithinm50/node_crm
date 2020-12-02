@@ -1,0 +1,103 @@
+<%- include('../includes/admin/header.ejs') %>
+<%- include('../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="page-content isopen">
+        <%- include('../includes/admin/sidebar.ejs') %>
+        <div class="main-container settings">
+            <%- include('../includes/admin/tab/setup.ejs') %>
+            <div class="company-details">
+                <div class="infobox">
+                    <div class="logo-container">
+                        <img src="/images/companylogo.svg" alt="" class="user-image">
+                        <a href="#" class="upload-img" onclick="openModal('logoUpload', 'freezeBg')">Change</a>
+                    </div>
+                    <div class="info-container">
+                        <div>
+                            <span class="company-title">Clevertize</span>
+                            <span class="svg-icons icon-edit" onclick="openModal('compopup', 'freezeBg')"></span>
+                        </div>
+                        <div class="email-icon">
+                            <span>nithin@clevertize.com</span>
+                        </div>
+                        <div class="phone-icon">
+                            <span></span>
+                        </div>
+                        <div class="mobile-icon">
+                            <span></span>
+                        </div>
+                        <div class="website-icon">
+                            <span></span>
+                        </div>
+                        <div class="location-icon">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showhidedetails">
+                    <a href="#" class="showhidelink">hide Details</a>
+                </div>
+                <div class="company-showhide">
+                    <div class="company_information">
+                        <h4 class="info__head">Company Information</h4>
+                        <div class="company_items">
+                            <div class="element">
+                                <span class="element__title">Company Name</span>
+                                <span class="element__value">Clevertize</span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">Alias</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">Phone</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">mobile</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">Website</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">Super Admin</span>
+                                <span class="element__value">Nithin</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="address_information">
+                        <h4 class="info__head">Address Information</h4>
+                        <div class="user_items">
+                            <div class="element">
+                                <span class="element__title">Street</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">City</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">State</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">Country</span>
+                                <span class="element__value"></span>
+                            </div>
+                            <div class="element">
+                                <span class="element__title">Zip Code</span>
+                                <span class="element__value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrow" onclick="handleSidebar()" class="editCont"><span>&langle;</span>
+        </div>
+    </div>
+</main>
+<%- include('../includes/admin/modal/company.ejs') %>
+<%- include('../includes/admin/modal/logo-img.ejs') %>
+<%- include('../includes/admin/footer.ejs') %>

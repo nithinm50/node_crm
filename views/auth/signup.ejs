@@ -1,0 +1,42 @@
+<%- include('../includes/header.ejs') %>
+<header>
+  <a href="/" class="nav-link">
+    <img src="https://clevertize.com/assets/images/logo.png" alt="" class="nav__image" />
+    <span class="nav__brand">Clevertize</span>
+  </a>
+  <a href="./login" class="btn btn-white">Login</a>
+</header>
+<div class="card-container">
+  <div class="section1">
+    <h2 class="page__title">Create an account</h2>
+    <p class="section__text">
+      Signup for Clevertize CRM - an ultimate lead managment solution for small
+      and medium companies.
+    </p>
+    <button class="btn b0 btn-white w-100 mb-2">
+      <span class="pre-icon"><i class="google-icon"></i></span>Sign up with
+      Google
+    </button>
+    <form action="/signup" method="post" autocomplete="off" novalidate>
+      <% if(errormsg) { %>
+      <div><%= errormsg %></div>
+      <% } %>
+      <input type="name" name="name" class="form-control" placeholder="Name" value="<%=inputFields.name%>" />
+      <input type="email" name="email" class="form-control" placeholder="Email" value="<%=inputFields.email%>" />
+      <input type="tel" name="phone" class="form-control" placeholder="Phone Number" value="<%=inputFields.phone%>" />
+      <input type="password" name="password" class="form-control" placeholder="Password"
+        value="<%=inputFields.password%>" />
+      <input type="password" name="repassword" class="form-control" placeholder="Repeat Password"
+        value="<%=inputFields.repassword%>" />
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <div class="btn-group">
+        <button type="submit" class="btn b0 btn-primary w-100">
+          <span class="pre-icon"><i class="person-icon"></i></span>Create
+          Account
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="section2"></div>
+</div>
+<%- include('../includes/footer.ejs') %>

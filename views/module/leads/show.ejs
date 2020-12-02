@@ -1,0 +1,85 @@
+<%- include('../../includes/admin/header.ejs') %>
+<%- include('../../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="head-banner">
+        <div class="dashboard__types">
+            <select name="type" id="" class="selection">
+                <option value="A">Unread Leads</option>
+                <option value="A">Duplicate Leads</option>
+                <option value="A">Untitled</option>
+            </select>
+            <span class="edit">Edit</span>
+            <span class="refreshButton"></span>
+        </div>
+        <div class="banner__actions">
+            <div class="dashboard-items">
+                <a class="import-btn" class="editCont"><span class="details"></span></a>
+                <a class="more-btn" class="editCont"><span class="details"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="page-content isopen">
+        <%- include('../../includes/admin/sidebar.ejs') %>
+        <div class="main-container">
+            <% if(leads.length > 0) { %>
+            <table>
+                <thead>
+                    <tr class="lead">
+                        <th><input type="button" value="" id="addColumn"></th>
+                        <th><input type="checkbox" class="checkAll"></th>
+                        <th>Lead Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Street</th>
+                        <th>Country</th>
+                        <th>Lead Owner</th>
+                        <th>Lead ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (lead of leads) { %>
+                    <tr class="lead" >
+                        <td class="editCont"><span class="editIcon" data-target="/leads/id=<%= lead._id%>"></span></td>
+                        <td><input type="checkbox" name="lead" class="checker"></td>
+                        <td><a href="/leads/<%= lead._id%>"><%= lead.fname%> <%= lead.lname%></a></td>
+                        <td><%= lead.phone%></td>
+                        <td><a href="mailto:<%= lead.email%>"><%= lead.email%></a></td>
+                        <td><%= lead.address.area%></td>
+                        <td><%= lead.address.country%></td>
+                        <td><%= user.fname%> <%= user.lname%></td>
+                        <td><%= lead._id%></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <% }else{ %>
+            <div>
+                There are no leads available
+            </div>
+            <%}%>
+        </div>
+        <div class="footer-items">
+            <div class="left-element">
+                <p>Total Count: <%= leads.length%></p>
+        </div>
+        <div class="right-element">
+            <div class="flex">
+                <select name="type" id="" class="selection">
+                    <option value="A">10 Records Per Page</option>
+                    <option value="A">20 Records Per Page</option>
+                    <option value="A">30 Records Per Page</option>
+                </select>
+                <div class="navigation">
+                    <div class="l-arrow"></div>
+                    <div class="nav-content"><span class="from">1</span> to <span class="to">10</span></div>
+                    <div class="r-arrow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="arrow" onclick="handleSidebar()" class="editCont"><span>&langle;</span>
+    </div>
+    </div>
+</main>
+<%- include('../../includes/admin/modal/menu.ejs') %>
+<%- include('../../includes/admin/footer.ejs') %>

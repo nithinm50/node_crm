@@ -1,0 +1,50 @@
+<%- include('../includes/admin/header.ejs') %>
+<%- include('../includes/admin/nav.ejs') %>
+<main class="body-container">
+    <div class="page-content isopen">
+        <%- include('../includes/admin/sidebar.ejs') %>
+        <div class="main-container settings">
+            <%- include('../includes/admin/tab/setup.ejs') %>
+            <div class="account-details">
+                <div class="account_information">
+                    <h4 class="info__head">Account Information <span class="svg-icons icon-edit"
+                            onclick="openModal('accpopup', 'freezeBg')"></span></h4>
+                    <div class="account_items">
+                        <div class="element">
+                            <span class="element__title">Bank Name</span>
+                            <span class="element__value">ICICI Bank</span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Account Name</span>
+                            <span class="element__value">Clevertize Pvt Ltd</span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Account Type</span>
+                            <span class="element__value">Current Account</span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">Account Number</span>
+                            <span class="element__value">017005007379</span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">IFSC Code</span>
+                            <span class="element__value">ICIC0000170</span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">GST Number</span>
+                            <span class="element__value"> 29AAHCC4914D1ZS</span>
+                        </div>
+                        <div class="element">
+                            <span class="element__title">CIN Number</span>
+                            <span class="element__value"> U72900KA2018PTC111706</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrow" onclick="handleSidebar()" class="editCont"><span>&langle;</span>
+        </div>
+    </div>
+</main>
+<%- include('../includes/admin/modal/account.ejs') %>
+<%- include('../includes/admin/footer.ejs') %>

@@ -1,0 +1,48 @@
+<div id="freezeBg" style="display: none; z-index: 30; position: fixed; top: 0px; left: 0px;"></div>
+<form action="" method="post">
+    <input type="hidden" name="userId" value="<%=user._id %>">
+    <input type="hidden" name="_csrf" value="<%=csrfToken %>" />
+    <div id="accpopup" class="crm-modal crm-effect" style="top: 0;">
+        <div class="crm-content">
+            <div class="popup__head">Account Details</div>
+            <div class="popup-body">
+                <div class="form_container">
+                    <div class="form-group">
+                        <label for="bname">Bank Name</label>
+                        <input type="text" name="bname" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="acc_name">Account Name</label>
+                        <input type="text" name="alias" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="acc_type">Account Type</label>
+                        <input type="text" name="atype" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="acc_no">Account Number</label>
+                        <input type="text" name="acc_no" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="ifsc">IFSC Code</label>
+                        <input type="text" name="ifsc" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="gst_no">GST Number</label>
+                        <input type="text" name="gst_no" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="cin_no">CIN Number</label>
+                        <input type="text" name="cin_no" class="form-input">
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <div class="btn-groups">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-cancel" onclick="closeModal('accpopup', 'freezeBg')">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

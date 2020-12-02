@@ -1,0 +1,28 @@
+<%- include('../includes/header.ejs') %>
+<header>
+  <a href="/" class="nav-link">
+    <img src="https://clevertize.com/assets/images/logo.png" alt="" class="nav__image" />
+    <span class="nav__brand">Clevertize</span>
+  </a>
+  <a href="./login" class="btn btn-white">Login</a>
+</header>
+<div class="card-container">
+  <div class="section1">
+    <h2 class="page__title">Forgot password?</h2>
+    <p class="section__text">
+      Enter the email used to create a Clevertize CRM account. We'll send you a
+      link to reset your password
+    </p>
+    <form action="/" method="post" autocomplete="off">
+      <input type="email" name="email" class="form-control" placeholder="Email" />
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <div class="btn-group">
+        <button type="submit" class="btn btn-primary w-100">
+          <span class="pre-icon">s</span>Reset password
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="section2"></div>
+</div>
+<%- include('../includes/footer.ejs') %>

@@ -1,0 +1,56 @@
+<aside class="sidebar">
+    <div class="sidebar__body">
+        <%if(setup) { %>
+        <h4 class="sidebar__title">Setup</h4>
+        <div class="search-container">
+            <input type="text" name="search" placeholder="Search" class="search">
+        </div>
+        <ul class="setup-items">
+            <li class="sitem acc__open">General
+                <ul class="sitem__list">
+                    <li><a href="settings" class="sitem__link <% if ( item == 'personal settings'){ %>sactive<%}%>">Personal Settings</a></li>
+                    <li><a href="company-details" class="sitem__link <% if ( item == 'company details' || item == 'account details'){ %>sactive<%}%>">Company Details</a></li>
+                </ul>
+            </li>
+            <li class="sitem">Users and Control
+                <ul class="sitem__list">
+                    <li><a href="" class="sitem__link <% if ( item == 'personal settings'){ %>sactive<%}%>">Users</a></li>
+                    <li><a href="" class="sitem__link">Security Control</a></li>
+                </ul>
+            </li>
+            <li class="sitem">Channels
+                <ul class="sitem__list">
+                    <li><a href="" class="sitem__link <% if ( item == 'personal settings'){ %>sactive<%}%>">Personal Settings</a></li>
+                    <li><a href="" class="sitem__link">Company Details</a></li>
+                </ul>
+            </li>
+            <li class="sitem">Customization
+                <ul class="sitem__list">
+                    <li><a href="" class="sitem__link <% if ( item == 'personal settings'){ %>sactive<%}%>">Modules and Fields</a></li>
+                    <li><a href="" class="sitem__link">Templates</a></li>
+                    <li><a href="" class="sitem__link">Customize Home page</a></li>
+                </ul>
+            </li>
+            <li class="sitem">Automation
+                <ul class="sitem__list">
+                    <li><a href="" class="sitem__link <% if ( item == 'personal settings'){ %>sactive<%}%>">Personal Settings</a></li>
+                    <li><a href="" class="sitem__link">Company Details</a></li>
+                </ul>
+            </li>
+            <li class="sitem">Developer Space
+                <ul class="sitem__list">
+                    <li><a href="" class="sitem__link <% if ( item == 'personal settings'){ %>sactive<%}%>">Personal Settings</a></li>
+                    <li><a href="" class="sitem__link">Company Details</a></li>
+                </ul>
+            </li>
+        </ul>
+        <% }else{ %>
+        <div class=" search-container">
+            <div class="searchicon">
+                <span class="text">Filter <%= page %> By</span>
+                <span class="svg-icons icon-search-blk"></span>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</aside>
