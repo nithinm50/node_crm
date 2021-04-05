@@ -17,15 +17,15 @@
                             <span class="svg-icons icon-edit" onclick="openModal('profilepopup', 'freezeBg')"></span>
                         </div>
                         <div class="secondary-info">
-                            <a href="#" class="role">CEO</a>
+                            <a href="#" class="role"><%=user.role %></a>
                             at
-                            <a href="#" class="company">Clevertize</a>
+                            <a href="#" class="company"><%=org.cname%></a>
                         </div>
                         <div class="email-icon">
-                            <span>nithin@clevertize.com</span>
+                            <span><%=user.email %></span>
                         </div>
                         <div class="phone-icon">
-                            <span>9036326968</span>
+                            <span><%=user.phone %></span>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,8 @@ exports.GetCompany = (req, res, next) => {
         page: 'setup',
         item: 'company details',
         setup: true,
-        user: req.user
+        user: req.user,
+        org: req.org
     })
 }
 

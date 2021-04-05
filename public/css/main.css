@@ -655,6 +655,17 @@ h4.card__label {
   min-height: 30px;
 }
 
+.label__val:empty::before {
+  content: '';
+  background: url('../images/icons/icon-set1.svg') no-repeat -314px -2397px;
+  width: 10px;
+  height: 1px;
+  display: inline-block;
+  margin-bottom: 0;
+  opacity: .35;
+  vertical-align: middle;
+}
+
 input.card__input {
   max-width: 240px !important;
   width: 100%;

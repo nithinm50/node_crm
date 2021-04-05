@@ -3,12 +3,7 @@ const { Error } = require('mongoose');
 const Lead = require('../models/lead');
 
 exports.GetLeads = (req, res, next) => {
-    // Lead.find({}, function(err, lead){
-    //     let x = lead[0]._doc;
-    //     for (const key of Object.keys(x)) {
-    //         console.log(key + ": " + x[key]);
-    //     }
-    // })
+
     Lead.find({ "created_by.id": req.user._id })
         .then(prods => {
             res.render('module/leads/show', {
@@ -16,7 +11,8 @@ exports.GetLeads = (req, res, next) => {
                 page: 'leads',
                 setup: false,
                 leads: prods,
-                user: req.user
+                user: req.user,
+                
             })
         })
         .catch(err => {
@@ -62,9 +58,7 @@ exports.AddLead = (req, res, next) => {
 }
 
 exports.PostLead = (req, res, next) => {
-    // for (const key of Object.keys(req.body)) {
-    //     console.log(key);
-    // }
+    
     const fname = req.body.fname;
     const lname = req.body.lname;
     const company = req.body.company;

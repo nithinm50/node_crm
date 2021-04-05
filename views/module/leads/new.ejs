@@ -1,5 +1,18 @@
 <%- include('../../includes/admin/header.ejs') %>
 <%- include('../../includes/admin/nav.ejs') %>
+<%
+const formatDateTime = (dateTime) =>{
+    let ele = dateTime.toString().split(' ');
+    let date = `${ele[0]}, ${ele[2]} ${ele[1]} ${ele[3]}`;
+    let time = ele[4].split(':');
+    let hour = time[0];
+    let AmOrPm = hour >= 12 ? 'pm' : 'am';
+    hour = (hour % 12) || 12;
+    let minute = time[1];
+    let final = `${date} ${hour}:${minute} ${AmOrPm}`;
+    return final;
+}
+%>
 <main class="body-container">
     <div class="head-banner">
         <div class="dashboard__types">
@@ -173,7 +186,7 @@
                                 </div>
                                 <div class="card__item">
                                     <h4 class="card__label">Created By</h4>
-                                    <span id="LEAD_CREATE" class="label__val"><%=lead.created_by.name%><br><%=lead.createdAt%></span>
+                                    <span id="LEAD_CREATE" class="label__val"><%=lead.created_by.name%><br><%=formatDateTime(lead.createdAt)%></span>
                                     <!-- <div class="card__value">
                                         <input type="text" onload="formatDateTime('<%=lead.createdAt%>')" name="status" class="card__input"
                                             value="formatDateTime('<%=lead.createdAt%>')">
@@ -183,7 +196,7 @@
                                 </div>
                                 <div class="card__item">
                                     <h4 class="card__label">Modified By</h4>
-                                    <span id="LEAD_UPDATE" class="label__val"><%=lead.modified_by.name%><br><%=lead.updatedAt%></span>
+                                    <span id="LEAD_UPDATE" class="label__val"><%=lead.modified_by.name%><br><%=formatDateTime(lead.updatedAt)%></span>
                                     <!-- <div class="card__value">
                                         <input type="text" name="status" class="card__input" value="<%=lead.updatedAt %>">
                                         <span class="card__btn btn--save"></span>

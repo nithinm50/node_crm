@@ -59,7 +59,7 @@ const profile_route = require('./routes/settings');
 const error_controller = require('./controller/errors');
 
 const csrfProtection = csrf();
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = 'mongodb+srv://crmUser:6x72NL5ik8jpFCgP@cluster0.pyjzj.mongodb.net/crm?retryWrites=true&w=majority';
 
 const store = new MongoDBStore({
     uri: MONGODB_URI,
